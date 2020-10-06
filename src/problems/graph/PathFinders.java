@@ -3,6 +3,7 @@ package problems.graph;
 import problems.heap.PairHeap;
 import problems.heap.PairHeapNode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -11,6 +12,41 @@ import java.util.Queue;
  * @version Revision 1.0, created at 30/09/20 00:32
  */
 public class PathFinders {
+
+    /**
+     * Implementation of prim's algorithm for spanning tree in graph
+     * @param graph Instance of {@link Graph}
+     * @param source index of vertex, from which to start
+     * @return array of integers, where each index contains its parent index.
+     * With that structure, we make shortest path spanning tree.
+     */
+    public int[] prims(Graph graph, int source) {
+        Vertex[] vertices = graph.vertices;
+        PairHeap heap = new PairHeap(vertices.length);
+        int[] distances = new int[vertices.length];
+        int[] path = new int[vertices.length];
+        Arrays.fill(distances, -1);
+        distances[source] = 0;
+        heap.add(source, 0);
+        while (!heap.isEmpty()) {
+            PairHeapNode node = heap.getMin();
+            Vertex v = vertices[node.index];
+            for (Edge e : v.adjVertices) {
+                int d = node.weight + e.weight;
+                if (distances[e.index] == -1) {
+                    distances[e.index] = d;
+                    path[e.index] = node.index;
+                    heap.add(e.index, d);
+                }
+                if (distances[e.index] > d) {
+                    distances[e.index] = d;
+                    path[e.index] = node.index;
+                    heap.update(e.index, d);
+                }
+            }
+        }
+        return path;
+    }
 
     /**
      * Implementation of Bellman-ford algorithm
