@@ -1,7 +1,7 @@
 package tests.sorting;
 
 import org.junit.jupiter.api.Test;
-import problems.sorting.InsertionSort;
+import problems.sorting.MergeSort;
 
 import static org.junit.jupiter.api.Assertions.*;
 

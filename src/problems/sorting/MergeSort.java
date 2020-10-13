@@ -1,4 +1,4 @@
-package tests.sorting;
+package problems.sorting;
 
 /**
  * @author Vishwas
