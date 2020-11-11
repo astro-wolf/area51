@@ -36,8 +36,10 @@ public class RabinKarp {
             sa += s[(i + m.length) - 1];
             if (sa == ma) {
                 for (int j = 0; j < m.length; j++) {
-                    if (m[j] != s[j + 1])
+                    if (m[j] != s[j + 1]) {
+                        // BUG: This will return false at first spurious hit?
                         return false;
+                    }
                 }
                 return true;
             }
