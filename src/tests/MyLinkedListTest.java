@@ -1,7 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import problems.MyLinkedList;
+import problems.linkedList.MyLinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 

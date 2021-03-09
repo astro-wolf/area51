@@ -1,6 +1,4 @@
-package problems;
-
-import java.util.Iterator;
+package problems.linkedList;
 
 /**
  * @author Vishwas
@@ -55,7 +53,7 @@ import java.util.Iterator;
 public class MyLinkedList {
 
     private int size = 0;
-    private Node head;
+    public Node head;
 
     /**
      * Initialize your data structure here.
@@ -162,17 +160,4 @@ public class MyLinkedList {
         }
     }
 
-    private class Node {
-        int val;
-        Node next;
-
-        public Node(int val) {
-            this.val = val;
-        }
-
-        public Node(int val, Node next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 }
